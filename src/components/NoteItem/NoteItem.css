@@ -1,0 +1,70 @@
+.note-card {
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  height: 150px;
+  width: 48%;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.linked-div {
+  color: #fff;
+  text-decoration: none;
+}
+
+.linked-div:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.note-body-card {
+  width: 80%;
+  padding: 8px 14px;
+  overflow: hidden;
+  height: auto;
+}
+
+.note-body-card h3 {
+  margin: 8px 0;
+  word-wrap: break-word;
+}
+
+.note-body-card p {
+  margin: 0;
+  word-wrap: break-word;
+  height: 68%;
+  color: rgba(238, 238, 238, 0.6);
+  overflow-y: scroll;
+}
+
+.note-body-card p::-webkit-scrollbar {
+  display: none;
+}
+
+.c-button {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-item {
+  height: 50%;
+  background-color: transparent;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  border-left: 2px solid black;
+}
+
+.btn-item__delete {
+  color: rgb(255, 26, 26);
+  border-top: 1px solid black;
+}
+.btn-item__delete:hover {
+  color: rgb(51, 51, 51);
+  background-color: rgb(255, 26, 26);
+}

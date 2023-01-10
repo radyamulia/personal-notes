@@ -1,0 +1,16 @@
+.search-bar {
+    margin: auto;
+    height: 35px;
+    width: 275px;
+    display: flex;
+}
+
+.search-input {
+    width: 360px;
+}
+
+.btn-submit:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: rgb(51, 51, 51);
+}
