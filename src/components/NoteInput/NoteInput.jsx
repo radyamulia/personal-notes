@@ -15,7 +15,7 @@ function NoteInput(props) {
 
   const [titleInputLimit, setInputLimit] = useState({
     titleLengthCounter: 0,
-    titleLengthLimit: 20,
+    titleLengthLimit: 50,
   });
   const { titleLengthCounter, titleLengthLimit } = titleInputLimit;
 
