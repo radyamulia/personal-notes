@@ -1,10 +1,20 @@
+[data-theme="dark"] {
+  --font-color: #eee;
+  --background-color: rgb(51, 51, 51);
+}
+
+[data-theme="light"] {
+  --font-color: rgb(51, 51, 51);
+  --background-color: #fff;
+}
+
 * {
   box-sizing: content-box;
   transition: 100ms ease-out;
 }
 
 html {
-  background-color: rgb(51, 51, 51);
+  background-color: var(--background-color);
 }
 
 body {
@@ -12,10 +22,16 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  color: rgb(238, 238, 238);
+  color: var(--font-color);
   /* centering content */
   display: flex;
   justify-content: center;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .app-title {
@@ -26,5 +42,18 @@ body {
   height: 2px;
   width: 400px;
   margin: auto;
-  background-color: #FFF;
+  background-color: var(--font-color);
+}
+
+a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a:visited {
+  color: var(--font-color);
+}
+
+a:active {
+  color: var(--font-color);
 }

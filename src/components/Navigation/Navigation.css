@@ -1,16 +1,56 @@
 .navigation {
-    width: 500px;
-    margin: auto;
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 2rem;
+  width: 90vw;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
 }
 
 .linked-nav {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .linked-nav {
-    color: #FFF;
+  color: var(--font-color);
+}
+
+.linked-nav:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.c-pages-nav {
+  width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.c-functional-nav {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.functional-nav {
+  background-color: transparent;
+  color: var(--font-color);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.functional-nav:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.functional-nav__logout {
+  color: rgb(255, 0, 0);
 }
