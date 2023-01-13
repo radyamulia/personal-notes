@@ -1,62 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
-import ArchivedNoteList from "../components/ArchivedNoteList";
-import { getNotes, deleteNote, archiveNote, searchNotes } from "../utils/data";
-
+import NoteList from "../components/NoteList";
+import {
+  getArchivedNotes,
+  deleteNote,
+  unarchiveNote,
+} from "../utils/api";
 
 function ArchivedPage() {
-  const [notes, setNotes] = useState(getNotes());
-  const [searchParams, setSearchParams] = useSearchParams("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [notes, setNotes] = useState([]);
+  const [keyword, setKeyword] = React.useState(() => {
+    return searchParams.get("keyword") || "";
+  });
 
-  const activeKeyword = searchParams.get("title");
-  const [foundNote, setFoundNote] = useState(
-    activeKeyword ? searchNotes(activeKeyword) : []
-  );
+  useEffect(() => {
+    getArchivedNotes().then(({ data }) => {
+      setNotes(data);
+    });
 
-  const onSearchHandler = (keyword) => {
-    setSearchParams({ title: keyword });
-    setFoundNote(searchNotes(keyword));
+    // Cleanup function
+    return () => setNotes([]);
+  }, []);
+
+  const onKeywordChange = (keyword) => {
+    setKeyword(keyword);
+    setSearchParams({ keyword });
   };
+
   /**
    * @description - Sets note's isArchived to true
    * @param {number} id
    */
-  const onUnarchiveHandler = (id) => {
-    archiveNote(id);
+  async function onUnarchiveHandler(id) {
+    await unarchiveNote(id);
     // updates the notes state
-    setNotes(getNotes());
-  };
+    const { data } = await getArchivedNotes();
+    setNotes(data);
+  }
 
   /**
    * @description - Filters data array to delete selected note after clicking button
    * @param {number} id
    */
-  const onDeleteHandler = (id) => {
-    deleteNote(id);
+  async function onDeleteHandler(id) {
+    await deleteNote(id);
     // updates the notes state
-    setNotes(getNotes());
-  };
+    const { data } = await getArchivedNotes();
+    setNotes(data);
+  }
+
+  const filteredNotes = notes.filter((note) => {
+    return note.title.toLowerCase().includes(keyword.toLowerCase());
+  });
 
   return (
     <>
-      <SearchBar search={onSearchHandler} defaultKeyword={activeKeyword} />
+      <SearchBar keyword={keyword} keywordChange={onKeywordChange} />
       <br />
       <br />
       <br />
-      {!!activeKeyword ? (
-        <ArchivedNoteList
-          notes={foundNote}
-          onDelete={onDeleteHandler}
-          onArchive={onUnarchiveHandler}
-        />
-      ) : (
-        <ArchivedNoteList
-          notes={notes}
-          onDelete={onDeleteHandler}
-          onArchive={onUnarchiveHandler}
-        />
-      )}
+      <NoteList
+        notes={filteredNotes}
+        onDelete={onDeleteHandler}
+        onArchive={onUnarchiveHandler}
+      />
     </>
   );
 }
