@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import TitleInputLengthCounter from "../TitleInputLengthCounter/TitleInputLengthCounter";
 
-import './NoteInput.css'
+import "./NoteInput.css";
 
 function NoteInput(props) {
   const [note, setNote] = useState({
@@ -11,7 +11,7 @@ function NoteInput(props) {
     // isArchived: false,
     // createdAt: new Date().toString(),
   });
-  const { title, content } = note
+  const { title, content } = note;
 
   const [titleInputLimit, setInputLimit] = useState({
     titleLengthCounter: 0,
@@ -19,28 +19,24 @@ function NoteInput(props) {
   });
   const { titleLengthCounter, titleLengthLimit } = titleInputLimit;
 
-
   const onTitleChangeHandler = (evt) => {
-    const { titleLengthLimit } = titleInputLimit;
     const { value } = evt.target;
 
     setNote({ ...note, title: value.slice(0, titleLengthLimit) });
     setInputLimit({ ...titleInputLimit, titleLengthCounter: value.length });
   };
 
-
   const onContentChangeHandler = (evt) => {
     const { value } = evt.target;
     setNote({ ...note, body: value });
   };
 
-
-    const onSubmitHandler = (evt) => {
+  const onSubmitHandler = (evt) => {
     // stops default action from submit button
     evt.preventDefault();
     props.addNote(note);
-    console.log(note)
-  }  
+    console.log(note);
+  };
 
   return (
     <form className="note-input" onSubmit={onSubmitHandler}>
@@ -57,7 +53,6 @@ function NoteInput(props) {
           className="input input__title"
           value={title}
           onChange={onTitleChangeHandler}
-          maxLength={20}
           required
         />
       </div>
