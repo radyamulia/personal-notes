@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 import { FaPlusCircle, FaHome, FaArchive, FaLanguage } from "react-icons/fa";
 import { FiLogOut, FiSun, FiMoon } from "react-icons/fi";
 import { LocaleContext, ThemeContext } from "../../contexts";
@@ -37,6 +38,10 @@ function Navigation({ logout }) {
       </div>
     </nav>
   );
+}
+
+Navigation.propTypes = {
+  logout: PropTypes.func.isRequired,
 }
 
 export default Navigation;
