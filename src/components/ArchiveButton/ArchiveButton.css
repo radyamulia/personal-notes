@@ -1,9 +1,9 @@
 .btn-item__archive {
-  color: rgb(219, 219, 219);
+  color: var(--font-color);
   border-bottom: 1px solid black;
 }
 .btn-item__archive:hover {
   background-color: rgb(219, 219, 219);
-  color: rgb(51, 51, 51);
+  color: var(--background-color);
   border-bottom: 1px solid black;
 }
