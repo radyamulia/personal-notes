@@ -7,9 +7,9 @@ import './NoteInput.css'
 function NoteInput(props) {
   const [note, setNote] = useState({
     title: "",
-    content: "",
-    isArchived: false,
-    createdAt: "",
+    body: "",
+    // isArchived: false,
+    // createdAt: new Date().toString(),
   });
   const { title, content } = note
 
@@ -31,7 +31,7 @@ function NoteInput(props) {
 
   const onContentChangeHandler = (evt) => {
     const { value } = evt.target;
-    setNote({ ...note, content: value });
+    setNote({ ...note, body: value });
   };
 
 
@@ -39,6 +39,7 @@ function NoteInput(props) {
     // stops default action from submit button
     evt.preventDefault();
     props.addNote(note);
+    console.log(note)
   }  
 
   return (
