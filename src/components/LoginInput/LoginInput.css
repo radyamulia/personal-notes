@@ -1,0 +1,10 @@
+.login-input {
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+button {
+    height: 30px;
+}

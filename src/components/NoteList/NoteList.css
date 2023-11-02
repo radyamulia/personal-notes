@@ -7,11 +7,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  border: 2px dashed rgb(255, 255, 255);
+  border: 2px dashed var(--font-color);
 }
 
 .list-title {
-  background-color: rgb(51, 51, 51);
+  background-color: var(--background-color);
   margin: 0;
   padding: 0 14px;
   position: absolute;

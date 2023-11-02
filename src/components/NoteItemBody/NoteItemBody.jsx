@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types"
 
-function NoteItemBody({ title, content }) {
+function NoteItemBody({ title, body }) {
     return (
         <div>
             <h3>{title}</h3>
-            <p>{content}</p>
+            <p>{body}</p>
         </div>
     )
 }
 
 NoteItemBody.propTypes = {
     title: PropTypes.string.isRequired,
-    content: PropTypes.string,
+    body: PropTypes.string,
 }
 
 export default NoteItemBody

@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import './ArchiveButton.css'
 
-function ArchiveButton({ id, isArchived, onArchive }) {
-  if (isArchived)
+function ArchiveButton({ id, archived, onArchive }) {
+  if (archived)
     return (
       <button
         className="btn-item btn-item__archive"
@@ -13,7 +13,7 @@ function ArchiveButton({ id, isArchived, onArchive }) {
         Unarchive
       </button>
     );
-  else if (!isArchived)
+  else if (!archived)
     return (
       <button
         className="btn-item btn-item__archive"
@@ -25,8 +25,8 @@ function ArchiveButton({ id, isArchived, onArchive }) {
 }
 
 ArchiveButton.propTypes = {
-  id: PropTypes.number.isRequired,
-  isArchived: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
+  archived: PropTypes.bool.isRequired,
   onArchive: PropTypes.func.isRequired,
 };
 

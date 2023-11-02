@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { addNote } from "../utils/data";
-import NoteInput from "../components/NoteInput";
+// import { addNote } from "../utils/data";
+import { addNote } from "utils/api";
+import NoteInput from "components/NoteInput";
 
 
 function AddPage() {
@@ -12,12 +13,8 @@ function AddPage() {
      * @param {string} note.title
      * @param {string} note.content
      */
-    const onAddNoteHandler = ({title, content}) => {
-        const newNote = {
-            title: title,
-            content: content,
-        }
-        addNote(newNote);
+    async function onAddNoteHandler(newNote) {
+        await addNote(newNote);
         navigate("/");
     }
 

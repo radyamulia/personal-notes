@@ -7,14 +7,14 @@ import NoteItemBody from "../NoteItemBody/NoteItemBody";
 
 import './NoteItem.css'
 
-function NoteItem({ id, title, content, isArchived, onArchive, onDelete }) {
+function NoteItem({ id, title, body, archived, onArchive, onDelete }) {
   return (
     <div className="note-card">
       <Link to={`/note/${id}`} className="linked-div note-body-card">
-        <NoteItemBody title={title} content={content} />
+        <NoteItemBody title={title} body={body} />
       </Link>
       <div className="c-button">
-        <ArchiveButton id={id} isArchived={isArchived} onArchive={onArchive} />
+        <ArchiveButton id={id} archived={archived} onArchive={onArchive} />
         <DeleteButton id={id} onDelete={onDelete} />
       </div>
     </div>
@@ -22,10 +22,10 @@ function NoteItem({ id, title, content, isArchived, onArchive, onDelete }) {
 }
 
 NoteItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  isArchived: PropTypes.bool.isRequired,
+  body: PropTypes.string,
+  archived: PropTypes.bool.isRequired,
   onArchive: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
 }

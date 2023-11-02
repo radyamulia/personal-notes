@@ -1,48 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { FaSearch } from "react-icons/fa";
+import { LocaleContext } from "../../contexts";
 
 import './SearchBar.css'
 
-function SearchBar(props) {
-  const [keyword, setKeyword] = useState(props.defaultKeyword);
-
-  /**
-   * @description - Sets keyword
-   * @param {Event} evt
-   */
-  const onKeywordChangeHandler = (evt) => {
-    const { value } = evt.target;
-    setKeyword(value);
-  };
-
-  /**
-   * @description - Filter note-list based on keyword
-   * @param {Event} evt
-   */
-  const onSubmitHandler = (evt) => {
-    evt.preventDefault();
-    props.search(keyword);
-  };
+function SearchBar({ keyword, keywordChange }) {
+  const { locale } = useContext(LocaleContext);
 
   return (
-    <form onSubmit={onSubmitHandler} className="search-bar">
+    <form className="search-bar">
       <input
         type="text"
-        placeholder="search note by title"
+        placeholder={locale === 'id' ? 'cari catatan berdasarkan judul' : 'search note by title'}
         value={keyword || ""}
-        onChange={onKeywordChangeHandler}
+        onChange={(evt) => keywordChange(evt.target.value)}
         maxLength={20}
-        className="search-input"
+        className='search-input'
       />
-      <button type="submit" className="btn-submit"><FaSearch /></button>
     </form>
   );
 }
 
 SearchBar.propTypes = {
-  search: PropTypes.func.isRequired,
-  defaultKeyword: PropTypes.string,
+  keywordChange: PropTypes.func.isRequired,
+  keyword: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
