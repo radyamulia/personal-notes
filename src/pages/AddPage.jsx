@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 // import { addNote } from "../utils/data";
-import { addNote } from "../utils/api";
-import NoteInput from "../components/NoteInput";
+import { addNote } from "utils/api";
+import NoteInput from "components/NoteInput";
 
 
 function AddPage() {

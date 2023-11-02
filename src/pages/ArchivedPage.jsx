@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import SearchBar from "../components/SearchBar";
-import NoteList from "../components/NoteList";
+import SearchBar from "components/SearchBar";
+import NoteList from "components/NoteList";
 import {
   getArchivedNotes,
   deleteNote,
   unarchiveNote,
-} from "../utils/api";
+} from "utils/api";
 
 function ArchivedPage() {
   const [searchParams, setSearchParams] = useSearchParams();

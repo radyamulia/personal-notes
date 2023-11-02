@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NoteDetail from "../components/NoteDetail";
-import { getNote } from "../utils/api";
+import NoteDetail from "components/NoteDetail";
+import { getNote } from "utils/api";
 import { useParams } from "react-router-dom";
 import Error404Page from "./Error404Page";
 

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import RegisterInput from "../components/RegisterInput";
-import { register } from "../utils/api";
-import { LocaleContext } from "../contexts";
+import RegisterInput from "components/RegisterInput";
+import { register } from "utils/api";
+import { LocaleContext } from "contexts";
 
 function RegisterPage() {
   const navigate = useNavigate();

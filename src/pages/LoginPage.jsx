@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types"
-import { login } from "../utils/api";
-import LoginInput from "../components/LoginInput";
-import { LocaleContext } from "../contexts";
+import { login } from "utils/api";
+import LoginInput from "components/LoginInput";
+import { LocaleContext } from "contexts";
 
-import "../styles/index.css";
+import "styles/index.css";
 
 function LoginPage({ loginSuccess }) {
   const { locale } = useContext(LocaleContext);

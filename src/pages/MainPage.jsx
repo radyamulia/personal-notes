@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import NoteList from "../components/NoteList";
-import SearchBar from "../components/SearchBar";
-import { getActiveNotes, deleteNote, archiveNote } from "../utils/api";
-import "../styles/index.css";
+import NoteList from "components/NoteList";
+import SearchBar from "components/SearchBar";
+import { getActiveNotes, deleteNote, archiveNote } from "utils/api";
+import "styles/index.css";
 
 function MainPage() {
   const [searchParams, setSearchParams] = useSearchParams();
